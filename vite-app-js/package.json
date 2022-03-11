@@ -1,0 +1,18 @@
+{
+  "name": "vite-app-js",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "standard --fix"
+  },
+  "devDependencies": {
+    "standard": "^16.0.4",
+    "vite": "^2.8.0"
+  },
+  "eslintConfig": {
+    "extends": ["./node_modules/standard/eslintrc.json"]
+  }
+}
