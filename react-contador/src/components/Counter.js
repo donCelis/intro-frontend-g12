@@ -3,12 +3,13 @@
 // 1. Por convención, los nombres de Componentes empiezan con Mayúscula (esto incluye el nombre de Archivo)
 // 2. En react, siempre debo mandar a importar la dependencia de react: import React from 'react';
 import React from 'react';
+import './counter.scss';
 
 // 3. La clase/función debe llamarse igual que el archivo.
 
 class Counter extends React.Component {
     //Inicializar valores
-    
+
     constructor(props){
         console.log(props);
         // super ejecuta el constructor del padre, y lo necesito para poder manejar estados en React con Clases
