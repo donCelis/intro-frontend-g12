@@ -8,13 +8,15 @@ import React from 'react';
 
 class Counter extends React.Component {
     //Inicializar valores
-    constructor(){
+    
+    constructor(props){
+        console.log(props);
         // super ejecuta el constructor del padre, y lo necesito para poder manejar estados en React con Clases
-        super();
+        super(props);
         // El State se va a encargar de modificar el DOM por mi.
         // React detecta cambios en el State y actualiza la UI.
         this.state = {
-            count: 0
+            count: props.initCount
         }
     }
 

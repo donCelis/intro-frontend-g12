@@ -7,7 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* 2) Mandar a llamar al componente */}
-        <Counter />
+        <Counter initCount={6} />
+        <Counter initCount={2} />
       </header>
     </div>
   );
