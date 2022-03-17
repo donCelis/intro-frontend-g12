@@ -33,8 +33,7 @@ componentDidMount(){
   render(){
     console.log('2. SE EJECUTA EL RENDER: PINTO LA PANTALLA')
     return(
-      <div>
-        <h1>Hola</h1>
+      <div className="App">
         <SearchBar emitSearch={this.sendSearch} />
         <div className="grid-cards">
           {

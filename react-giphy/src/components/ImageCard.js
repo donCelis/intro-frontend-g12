@@ -1,4 +1,5 @@
 import React from 'react';
+import './imageCard.css';
 
 class ImageCard extends React.Component {
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import './searchBar.css';
 
 class SearchBar extends React.Component {
     //Necesito un estado que guarde las letras que voy pulsado.
