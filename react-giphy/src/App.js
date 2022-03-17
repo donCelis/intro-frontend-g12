@@ -11,7 +11,7 @@ class App extends React.Component {
 
 
   sendSearch = (search)=>{
-    const apiKey = 'eQRiBhStJJW3Bbcsv8sN3yt1t1Ik4lAB';
+    const apiKey = process.env.REACT_APP_API_KEY;
     axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${search}&limit=10&offset=0&rating=g&lang=es`)
     .then((response)=>{
       console.log(response.data.data);
