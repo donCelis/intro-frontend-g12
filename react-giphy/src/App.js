@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import SearchBar from './components/SearchBar';
+import ImageCard from './components/ImageCard';
 import './App.css';
 
 class App extends React.Component {
@@ -20,7 +22,7 @@ componentWillMount(){
 
 componentDidMount(){
   console.log('3. DIDMOUNT: DESPUÉS DE QUE SE EJECUTA EL RENDER')
-  this.sendSearch('gatitos');
+  //this.sendSearch('gatitos');
 }
 
   render(){
@@ -28,6 +30,7 @@ componentDidMount(){
     return(
       <div>
         <h1>Hola</h1>
+        <SearchBar emitSearch={this.sendSearch} />
       </div>
     )
   }
