@@ -1,10 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
+import { StrictMode } from 'react'
+import { render } from 'react-dom'
+import './styles/index.css'
 
-ReactDOM.render(
-  <React.StrictMode>
+render(
+  <StrictMode>
     <p>Vite react app</p>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 )
