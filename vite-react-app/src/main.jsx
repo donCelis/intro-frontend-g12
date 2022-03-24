@@ -6,12 +6,12 @@ import { render } from 'react-dom'
 import './styles/index.css'
 
 /* components */
-import { CounterOps } from './components/CounterOps'
+import { LifeCicle } from './components/lifeCicle'
 
 render(
   <StrictMode>
     <>
-      <CounterOps />
+      <LifeCicle />
     </>
   </StrictMode>,
   document.getElementById('root')
