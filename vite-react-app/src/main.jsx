@@ -6,15 +6,12 @@ import { render } from 'react-dom'
 import './styles/index.css'
 
 /* components */
-import { App } from './components/App'
-import { Counter } from './components/Counter'
+import { CounterOps } from './components/CounterOps'
 
 render(
   <StrictMode>
     <>
-      <App />
-      <Counter initialValue={10} />
-      <Counter initialValue={20} />
+      <CounterOps />
     </>
   </StrictMode>,
   document.getElementById('root')

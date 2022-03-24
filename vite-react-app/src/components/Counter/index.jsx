@@ -13,12 +13,14 @@ export const Counter = ({ initialValue = 0 }) => {
 
   const [contador, modContador] = useState(initialValue)
 
+  const sumar = () => modContador(contador + 1)
+
   /* JSX -> como se ve mi componente */
   return (
     <section>
       <p>Número</p>
       <p>{contador}</p>
-      <button onClick={() => modContador(contador + 1)}>+</button>
+      <button onClick={() => sumar(contador + 1)}>+</button>
     </section>
   )
 }
