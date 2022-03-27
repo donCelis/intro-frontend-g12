@@ -18,7 +18,8 @@ export const Weather = () => {
     day: 'numeric'
   }
 
-  const convertDay = (date, options) => new Date(date).toLocaleDateString('es', options)
+  const convertDay = (date, options) =>
+    new Date(date).toLocaleDateString('en', options)
 
   useEffect(() => {
     const data = async () => {
@@ -29,17 +30,27 @@ export const Weather = () => {
     Object.keys(city).length === 0 && data()
   }, [])
 
+  console.log(city)
+
   return loading
-    ? (<p>...Loading</p>)
+    ? (
+      <p>...Loading</p>
+      )
     : (
       <div className='container'>
         <div className='weather-side'>
           <div className='weather-gradient' />
           <div className='date-container'>
-            <h2 className='date-dayname'>{convertDay(city.list[0].dt_txt, optionsDay)}</h2>
-            <span className='date-day'>{convertDay(city.list[0].dt_txt, optionsDate)}</span>
+            <h2 className='date-dayname'>
+              {convertDay(city.list[0].dt_txt, optionsDay)}
+            </h2>
+            <span className='date-day'>
+              {convertDay(city.list[0].dt_txt, optionsDate)}
+            </span>
             <FeatherIcon className='location-icon' icon='map-pin' />
-            <span className='location'>{city.city.name}, {city.city.country}</span>
+            <span className='location'>
+              {city.city.name}, {city.city.country}
+            </span>
           </div>
           <div className='weather-container'>
             <img
@@ -47,8 +58,12 @@ export const Weather = () => {
               src={`http://openweathermap.org/img/wn/${city.list[0].weather[0].icon}@2x.png`}
               alt=''
             />
-            <h1 className='weather-temp'>{city.list[0].main.temp.toFixed(0)}°C</h1>
-            <h3 className='weather-desc'>{city.list[0].weather[0].description}</h3>
+            <h1 className='weather-temp'>
+              {city.list[0].main.temp.toFixed(0)}°C
+            </h1>
+            <h3 className='weather-desc'>
+              {city.list[0].weather[0].description}
+            </h3>
           </div>
         </div>
         <div className='info-side'>
@@ -70,13 +85,15 @@ export const Weather = () => {
           </div>
           <div className='week-container'>
             <ul className='week-list'>
-              {city.list.map((day, index) =>
-                <li key={index} className='active'>
+              {city.list.map((day, index) => (
+                <li key={index} className={index === 0 ? 'active' : ''}>
                   <FeatherIcon className='day-icon' icon='sun' />
-                  <span className='day-name'>Tue</span>
+                  <span className='day-name'>
+                    {convertDay(day.dt_txt, { weekday: 'short' })}
+                  </span>
                   <span className='day-temp'>{day.main.temp.toFixed(0)}°C</span>
                 </li>
-              )}
+              ))}
             </ul>
           </div>
           <div className='location-container'>
