@@ -4,25 +4,15 @@ import FeatherIcon from 'feather-icons-react'
 import './weather.css'
 import { fetchCity } from '../../utils/fetchCity'
 import { getCoords } from '../../utils/getCoords'
+import { useConvertDate } from '../../hooks/useConvertDate'
 
 export const Weather = () => {
   const [city, setCity] = useState({})
+  const [current, setCurrent] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
-  const [current, setCurrent] = useState({})
 
-  const optionsDay = {
-    weekday: 'long'
-  }
-
-  const optionsDate = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }
-
-  const convertDate = (date, options) =>
-    Intl.DateTimeFormat('en', options).format(new Date(date * 1000))
+  const { convertDate, convertDay } = useConvertDate()
 
   useEffect(() => {
     const data = async () => {
@@ -55,10 +45,10 @@ export const Weather = () => {
           <div className='weather-gradient' />
           <div className='date-container'>
             <h2 className='date-dayname'>
-              {convertDate(current.dt, optionsDay)}
+              {convertDay(current.dt)}
             </h2>
             <span className='date-day'>
-              {convertDate(current.dt, optionsDate)}
+              {convertDate(current.dt)}
             </span>
             <FeatherIcon className='location-icon' icon='map-pin' />
             <span className='location'>
@@ -72,7 +62,7 @@ export const Weather = () => {
               alt=''
             />
             <h1 className='weather-temp'>
-              {current.main.temp.toFixed(0)}°C
+              {current.temp.day.toFixed(0)}°C
             </h1>
             <h3 className='weather-desc'>
               {current.weather[0].description}
@@ -88,11 +78,11 @@ export const Weather = () => {
               </div>
               <div className='humidity'>
                 <span className='title'>HUMIDITY</span>
-                <span className='value'>{current.main.humidity} %</span>
+                <span className='value'>{current.humidity} %</span>
               </div>
               <div className='wind'>
                 <span className='title'>WIND</span>
-                <span className='value'>{current.wind.speed} mt/s</span>
+                <span className='value'>{current.speed} mt/s</span>
               </div>
             </div>
           </div>
@@ -106,9 +96,9 @@ export const Weather = () => {
                     alt=''
                   />
                   <span className='day-name'>
-                    {convertDate(day.dt, { weekday: 'short' })}
+                    {convertDay(day.dt)}
                   </span>
-                  <span className='day-temp'>{day.main.temp.toFixed(0)}°C</span>
+                  <span className='day-temp'>{day.temp.day.toFixed(0)}°C</span>
                 </li>
               ))}
             </ul>
