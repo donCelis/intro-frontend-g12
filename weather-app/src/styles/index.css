@@ -32,3 +32,10 @@ body {
 .text-white{
   color: white;
 }
+nav{
+  text-align: center;
+}
+a{
+  color: white;
+  margin: 1rem;
+}

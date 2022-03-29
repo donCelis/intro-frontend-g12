@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { render } from 'react-dom'
-import { Weather } from './components/Weather'
+import { Paths } from './routes'
 import './styles/index.css'
 
 render(
   <StrictMode>
-    <Weather />
+    <Paths />
   </StrictMode>,
   document.getElementById('root')
 )
