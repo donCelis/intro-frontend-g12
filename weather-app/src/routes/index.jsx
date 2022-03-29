@@ -11,8 +11,8 @@ export const Paths = () => {
     <BrowserRouter>
       <Menu />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/weather' element={<Weather />} />
+        <Route path='' element={<Home />} />
+        <Route path='weather' element={<Weather />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
