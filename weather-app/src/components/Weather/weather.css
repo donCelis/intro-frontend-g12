@@ -171,3 +171,7 @@
   width: auto;
   margin-right: 5px;
 }
+
+.weather-icon {
+  transform: translateX(-1.5rem);
+}
